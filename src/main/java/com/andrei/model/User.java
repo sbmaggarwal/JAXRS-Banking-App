@@ -1,9 +1,11 @@
 package com.andrei.model;
 
+import java.io.Serializable;
+
 /**
  * Created by shubham on 03/12/16.
  */
-public class User {
+public class User implements Serializable {
 
     private long id;
     private String name;

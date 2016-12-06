@@ -31,6 +31,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -49,6 +54,7 @@
         <org.apache.maven.plugins.version>2.4</org.apache.maven.plugins.version>
         <org.apache.logging.log4j.version>2.7</org.apache.logging.log4j.version>
         <mysql.version>5.1.6</mysql.version>
+        <com.sun.jersey.version>1.9</com.sun.jersey.version>
     </properties>
 
 </project>

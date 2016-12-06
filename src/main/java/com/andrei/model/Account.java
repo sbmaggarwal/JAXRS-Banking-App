@@ -9,7 +9,7 @@ public class Account {
     private String accountNumber;
     private long userId;
     private long balance;
-    private AccountType accountType;
+    private String accountType;
 
     public long getId() {
         return id;
@@ -43,11 +43,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public AccountType getAccountType() {
+    public String getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(AccountType accountType) {
+    public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
 

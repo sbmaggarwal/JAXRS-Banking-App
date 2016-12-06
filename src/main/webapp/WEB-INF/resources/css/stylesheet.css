@@ -3,3 +3,13 @@ body,
 .login-box {
     height: 100%;
 }
+
+header, main, footer {
+    margin-left: 200px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
