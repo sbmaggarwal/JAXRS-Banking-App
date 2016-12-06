@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -33,11 +34,13 @@ public class UserController {
 
     @Path("/login")
     @POST
-    public void getAll(@Context HttpServletRequest request,
-                           @Context HttpServletResponse response,
-                           @FormParam("email") String email,
-                           @FormParam("password") String password)
+    public void login(@Context HttpServletRequest request,
+                      @Context HttpServletResponse response,
+                      @FormParam("email") String email,
+                      @FormParam("password") String password)
             throws SQLException, ServletException, IOException {
+
+        HttpSession session = request.getSession(false);
 
         service = UserService.getInstance();
 
@@ -51,9 +54,33 @@ public class UserController {
             response.sendRedirect(invalidUser);
         } else {
 
-            String dashboard = request.getServletContext().getContextPath() + "/dashboard.jsp";
+            String dashboard = "/dashboard.jsp";
+            logger.warn("login dashboard : {}", dashboard);
+            logger.warn("user login name : {}", user.getName());
             request.getSession().setAttribute("user", user);
             request.getRequestDispatcher(dashboard).forward(request, response);
         }
     }
+
+    @Path("/register")
+    @POST
+    public void register(@Context HttpServletRequest request,
+                         @Context HttpServletResponse response,
+                         @FormParam("email") String email,
+                         @FormParam("name") String name,
+                         @FormParam("address") String address,
+                         @FormParam("password") String password)
+            throws SQLException, ServletException, IOException {
+
+        service = UserService.getInstance();
+
+        logger.warn("Email : {} and password : {}", email, password);
+
+        User user = service.register(email, name, address, password);
+
+        String dashboard = "/dashboard.jsp";
+        request.getSession().setAttribute("user", user);
+        request.getRequestDispatcher(dashboard).forward(request, response);
+    }
+
 }

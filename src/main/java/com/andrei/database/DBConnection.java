@@ -1,12 +1,15 @@
 package com.andrei.database;
 
+import com.andrei.model.Account;
+import com.andrei.model.Transaction;
+import com.andrei.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+
+import static com.andrei.database.Constants.*;
 
 /**
  * Created by shubham on 03/12/16.
@@ -94,5 +97,93 @@ public class DBConnection {
 
         statement.close();
         dbConnection.close();
+    }
+
+    public User registerUser(String email, String name, String address, String password, Connection connection) {
+
+        dbConnection = connection;
+        PreparedStatement pst = null;
+        User user = null;
+
+        String insertUserQuery = "INSERT INTO " + Constants.TABLE_USER
+                + "(" + Constants.USER_COLUMN_NAME
+                + ", " + Constants.USER_COLUMN_EMAIL
+                + ", " + Constants.USER_COLUMN_PD
+                + ", " + Constants.USER_COLUMN_ADDRESS
+                + ") VALUES(?, ?, ?, ?)";
+
+        try {
+
+            pst = dbConnection.prepareStatement(insertUserQuery, Statement.RETURN_GENERATED_KEYS);
+
+            pst.setString(1, name);
+            pst.setString(2, email);
+            pst.setString(3, password);
+            pst.setString(4, address);
+            pst.executeUpdate();
+
+            ResultSet rs = pst.getGeneratedKeys();
+            if (rs.next()) {
+                int lastInsertedUserId = rs.getInt(1);
+                logger.warn("registerUser lastInsertedUserId : {}", lastInsertedUserId);
+                user = getUserById(lastInsertedUserId, dbConnection);
+            }
+
+        } catch (SQLException ex) {
+
+            logger.error("Exception at registerUser : {}", ex);
+
+        } finally {
+            try {
+
+                if (pst != null) {
+                    pst.close();
+                }
+                dbConnection.close();
+
+            } catch (SQLException ex) {
+                logger.error("Exception at closing dbConnection registerUser : {}", ex);
+            }
+        }
+
+        return user;
+    }
+
+    public User getUserById(int id, Connection connection) {
+
+        String query = "SELECT * FROM "
+                + Constants.TABLE_USER + " WHERE "
+                + Constants.USER_COLUMN_ID + "='" + id + "'";
+
+        User user = null;
+
+        resultSet = getResultSet(query, connection);
+
+        try {
+
+            if (resultSet.next()) {
+
+                user = new User();
+                user.setId(resultSet.getLong(USER_COLUMN_ID));
+                user.setName(resultSet.getString(USER_COLUMN_NAME));
+                user.setAddress(resultSet.getString(USER_COLUMN_ADDRESS));
+                user.setEmail(resultSet.getString(USER_COLUMN_EMAIL));
+            }
+        } catch (SQLException ex) {
+
+            logger.error("Exception at checkLogin during User retrieve : {}", ex);
+        }
+
+        return user;
+    }
+
+    public ArrayList<Account> getAllAccountsOfUser(int id) {
+
+        return null;
+    }
+
+    public ArrayList<Transaction> getAllTransactionOfAccount(int id) {
+
+        return null;
     }
 }

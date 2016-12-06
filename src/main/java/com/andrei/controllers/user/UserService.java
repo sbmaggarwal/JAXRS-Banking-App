@@ -74,4 +74,17 @@ public class UserService {
 
         return user;
     }
+
+    public User register(String email, String name, String address, String password) throws SQLException {
+
+        DBConnection connection = new DBConnection();
+
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+            logger.error("Exception at opening dbConnection at register : {}", ex);
+        }
+
+        return connection.registerUser(email, name, address, password, dbConnection);
+    }
 }

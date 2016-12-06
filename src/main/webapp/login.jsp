@@ -27,7 +27,7 @@
         <div class="col s12 m6 offset-m3 cyan lighten-5">
             <div class="card z-depth-5">
                 <div class="card-content">
-                    <span class="card-title black-text">Sign In/Sign Up</span>
+                    <span class="card-title black-text">Sign In</span>
                     <form id="signUpForm" action="api/users/login" method="post">
                         <div class="row">
                             <div class="input-field col s12">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <input type="submit" class="btn" value="Sign In/Sign Up">
+                            <input type="submit" class="btn" value="Sign In">
                         </div>
                     </form>
                 </div>
