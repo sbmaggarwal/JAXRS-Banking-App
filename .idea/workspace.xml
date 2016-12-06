@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ceed03e-7cbc-4007-a7ad-8c8bc1fdf82d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/andrei/controllers/user/UserController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/AndreiBank/WEB-INF/classes/com/andrei/controllers/user/UserController.class" afterPath="$PROJECT_DIR$/target/AndreiBank/WEB-INF/classes/com/andrei/controllers/user/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/navigation.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/navigation.jsp" />
     </list>
     <ignored path="BankAndrei.iws" />
@@ -29,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
+            <state relative-caret-position="472">
               <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -41,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigation.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="navigation.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/navigation.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="97" selection-start-line="3" selection-start-column="97" selection-end-line="3" selection-end-column="97" />
+              <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -119,8 +116,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/transaction.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/navigation.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/navigation.jsp" />
       </list>
     </option>
   </component>
@@ -1134,12 +1131,12 @@
       <workItem from="1480873635135" duration="611000" />
       <workItem from="1480909848763" duration="11000" />
       <workItem from="1480945273283" duration="6179000" />
-      <workItem from="1480996136437" duration="21215000" />
+      <workItem from="1480996136437" duration="21398000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45009000" />
+    <option name="totallyTimeSpent" value="45192000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1168,11 +1165,11 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3025568" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3025568" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3309659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3309659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25426137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12930311" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1524,21 +1521,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/navigation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="97" selection-start-line="3" selection-start-column="97" selection-end-line="3" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
+        <state relative-caret-position="472">
           <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/navigation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
