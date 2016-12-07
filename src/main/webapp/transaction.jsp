@@ -39,7 +39,7 @@
                         <input id="amount" type="number" class="validate">
                         <label for="amount">Amount</label>
                     </div>
-                    <input type="button" onclick="submitForm()" class="btn" value="Add New Account">
+                    <input type="button" onclick="submitForm()" class="btn" value="Submit">
                     <label id="responseMessage"></label>
                 </div>
             </div>
