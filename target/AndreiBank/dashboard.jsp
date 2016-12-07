@@ -57,27 +57,24 @@
                 <table class="centered" id="accountTable">
                     <thead>
                     <tr>
-                        <th data-field="id">Account ID</th>
                         <th data-field="name">Account Number</th>
                         <th data-field="price">Type</th>
-                        <th data-field="balance">Balance</th>
+                        <th data-field="balance">Balance (USD)</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr>
+
                         <% List<Account> accounts = UserService.getInstance().
                                 getUserAccounts(((User) request.getSession().getAttribute("user")).getId());
                             for(Account account : accounts) {
                         %>
-
-                        <td><%= account.getId() %></td>
-                        <td><%= account.getAccountNumber() %></td>
-                        <td><%= account.getAccountType() %></td>
-                        <td><%= account.getBalance() %></td>
-
+                        <tr>
+                            <td><%= account.getAccountNumber() %></td>
+                            <td><%= account.getAccountType() %></td>
+                            <td><%= account.getBalance() %></td>
+                        </tr>
                         <%}%>
-                    </tr>
                     </tbody>
                 </table>
             </div>

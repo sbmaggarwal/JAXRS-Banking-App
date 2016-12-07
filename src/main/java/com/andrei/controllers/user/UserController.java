@@ -103,7 +103,6 @@ public class UserController {
 
     @Path("/logout")
     @GET
-    @Produces(MediaType.TEXT_HTML)
     public void logout(@Context HttpServletRequest request,
                            @Context HttpServletResponse response)
             throws IOException, ServletException {

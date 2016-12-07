@@ -134,16 +134,8 @@ public class DBConnection {
             logger.error("Exception at registerUser : {}", ex);
 
         } finally {
-            try {
 
-                if (pst != null) {
-                    pst.close();
-                }
-                dbConnection.close();
-
-            } catch (SQLException ex) {
-                logger.error("Exception at closing dbConnection registerUser : {}", ex);
-            }
+            closeEverything(pst, dbConnection);
         }
 
         return user;
@@ -211,5 +203,46 @@ public class DBConnection {
     public ArrayList<Transaction> getAllTransactionOfAccount(int id) {
 
         return null;
+    }
+
+    public void addNewAccount(String id, String type, Connection connection) {
+
+        this.dbConnection = connection;
+        PreparedStatement pst = null;
+        Account account = null;
+
+        String insertUserQuery = "INSERT INTO " + Constants.TABLE_ACCOUNT
+                + "(" + Constants.ACCOUNT_COLUMN_USER_ID
+                + ", " + Constants.ACCOUNT_COLUMN_TYPE
+                + ") VALUES(?, ?)";
+        try {
+
+            pst = dbConnection.prepareStatement(insertUserQuery);
+
+            pst.setString(1, id);
+            pst.setString(2, type);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at addNewAccount : {}", ex);
+
+        } finally {
+
+            closeEverything(pst, dbConnection);
+        }
+    }
+
+    private void closeEverything(PreparedStatement pst, Connection dbConnection) {
+
+        try {
+
+            if (pst != null) {
+                pst.close();
+            }
+            dbConnection.close();
+
+        } catch (SQLException ex) {
+            logger.error("Exception at closeEverything : {}", ex);
+        }
     }
 }

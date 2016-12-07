@@ -100,7 +100,7 @@ public class UserService {
             logger.error("Exception at opening dbConnection at addNewAccount : {}", ex);
         }
 
-        User user = connection.getUserById(Integer.parseInt(id), dbConnection);
+        connection.addNewAccount(id, type, dbConnection);
     }
 
     public List<Account> getUserAccounts(long user) {
