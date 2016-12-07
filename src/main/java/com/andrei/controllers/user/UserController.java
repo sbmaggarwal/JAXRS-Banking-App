@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -24,8 +25,6 @@ public class UserController {
 
     private final Logger logger = LogManager.getLogger("UserController");
 
-    private UserService service;
-
     @Path("/login")
     @POST
     public void login(@Context HttpServletRequest request,
@@ -34,11 +33,7 @@ public class UserController {
                       @FormParam("password") String password)
             throws SQLException, ServletException, IOException {
 
-        service = UserService.getInstance();
-
-        logger.warn("login Email : {} and password : {}", email, password);
-
-        User user = service.checkLogin(email, password);
+        User user = UserService.getInstance().checkLogin(email, password);
 
         if (user == null) {
 
@@ -49,7 +44,6 @@ public class UserController {
             HttpSession session = request.getSession();
 
             String dashboard = "/dashboard.jsp";
-            logger.warn("login dashboard : {}", dashboard);
             session.setAttribute("user", user);
             request.getRequestDispatcher(dashboard).forward(request, response);
         }
@@ -66,11 +60,7 @@ public class UserController {
                              @FormParam("password") String password)
             throws SQLException, ServletException, IOException {
 
-        service = UserService.getInstance();
-
-        logger.warn("register Email : {} and password : {}", email, password);
-
-        User user = service.register(email, name, address, password);
+        User user = UserService.getInstance().register(email, name, address, password);
 
         String dashboard = "/dashboard.jsp";
         request.getSession().setAttribute("user", user);
@@ -85,7 +75,6 @@ public class UserController {
             throws IOException, ServletException {
 
         String dashboard = "/dashboard.jsp";
-        logger.warn("dashboardPage : {}", dashboard);
         return new Viewable(dashboard, null);
     }
 
@@ -97,18 +86,16 @@ public class UserController {
             throws IOException, ServletException {
 
         String transactionPage = "/transaction.jsp";
-        logger.warn("transactionPage : {}", transactionPage);
         return new Viewable(transactionPage, null);
     }
 
     @Path("/logout")
     @GET
     public void logout(@Context HttpServletRequest request,
-                           @Context HttpServletResponse response)
+                       @Context HttpServletResponse response)
             throws IOException, ServletException {
 
         String loginPage = request.getServletContext().getContextPath() + "/login.jsp";
-        logger.warn("logout : {}", loginPage);
 
         if (request.getSession().getAttribute("user") != null) {
             request.getSession().invalidate();
@@ -120,16 +107,21 @@ public class UserController {
     @Path("/newAccount/user/{id}/type/{type}")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
-    public String addNewAccount(@PathParam("id") String id,
-                                  @PathParam("type") String type) {
+    public Response addNewAccount(@PathParam("id") String id,
+                                @PathParam("type") String type) {
 
-        logger.warn("addNewAccount id : {}", id);
-        logger.warn("addNewAccount type : {}", type);
-
-        service = UserService.getInstance();
-        service.addNewAccount(id, type);
-
-        return Constants.ACCOUNT_ADDED;
+        UserService.getInstance().addNewAccount(id, type);
+        return Response.status(200).entity(Constants.ACCOUNT_ADDED).build();
     }
 
+    @Path("/transaction/fromAccount/{fromAccount}/toAccount/{toAccount}/amount/{amount}")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response makeTransaction(@PathParam("fromAccount") String fromAccount,
+                                    @PathParam("toAccount") String toAccount,
+                                    @PathParam("amount") String amount) throws SQLException {
+
+        return Response.status(200).entity(
+                UserService.getInstance().makeTransaction(fromAccount, toAccount, amount)).build();
+    }
 }

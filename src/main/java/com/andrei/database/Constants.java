@@ -33,4 +33,8 @@ public class Constants {
     public static final String TRANSACTION_COLUMN_TIME = "timestamp";
 
     public static final String ACCOUNT_ADDED = "Account added. Refresh page to see changes.";
+
+    public static final String TRANSACTION_INVALID_ACCOUNTS = "Invalid account numbers.";
+    public static final String INSUFFICIENT_BALANCE = "Insufficient balance.";
+    public static final String TRANSACTION_DONE = "Transaction Done. Refresh page to see changes.";
 }

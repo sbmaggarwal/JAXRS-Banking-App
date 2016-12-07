@@ -2,6 +2,7 @@ package com.andrei.controllers.user;
 
 import com.andrei.database.DBConnection;
 import com.andrei.model.Account;
+import com.andrei.model.Transaction;
 import com.andrei.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,11 +25,12 @@ public class UserService {
     private static UserService instance = null;
 
     //a private constructor so no instances can be made outside this class
-    private UserService() {}
+    private UserService() {
+    }
 
     //Everytime you need an instance, call this
     public static UserService getInstance() {
-        if(instance == null)
+        if (instance == null)
             instance = new UserService();
 
         return instance;
@@ -114,5 +116,31 @@ public class UserService {
         }
 
         return connection.getAllAccountsOfUser((int) user, dbConnection);
+    }
+
+    public List<Transaction> getUserTransactions(long user) {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at getUserTransactions : {}", ex);
+        }
+
+        return connection.getAllUserTransactions((int) user, dbConnection);
+    }
+
+    public String makeTransaction(String fromAccount, String toAccount, String amount) throws SQLException {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at makeTransaction : {}", ex);
+        }
+
+        return connection.makeTransaction(fromAccount, toAccount, amount, dbConnection);
     }
 }

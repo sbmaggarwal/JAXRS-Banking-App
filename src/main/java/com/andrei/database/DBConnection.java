@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.andrei.database.Constants.*;
 
@@ -23,39 +24,38 @@ public class DBConnection {
     public ResultSet resultSet;
 
     private static final String CREATE_TABLE_USER = "CREATE TABLE IF NOT EXISTS "
-            + Constants.TABLE_USER + "("
-            + Constants.USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
-            + Constants.USER_COLUMN_NAME + " VARCHAR(50) NOT NULL, "
-            + Constants.USER_COLUMN_EMAIL + " VARCHAR(50) NOT NULL UNIQUE, "
-            + Constants.USER_COLUMN_PD + " VARCHAR(50) NOT NULL, "
-            + Constants.USER_COLUMN_ADDRESS + " VARCHAR(150) NOT NULL"
+            + TABLE_USER + "("
+            + USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
+            + USER_COLUMN_NAME + " VARCHAR(50) NOT NULL, "
+            + USER_COLUMN_EMAIL + " VARCHAR(50) NOT NULL UNIQUE, "
+            + USER_COLUMN_PD + " VARCHAR(50) NOT NULL, "
+            + USER_COLUMN_ADDRESS + " VARCHAR(150) NOT NULL"
             + ");";
 
     private static final String CREATE_TABLE_ACCOUNT = "CREATE TABLE IF NOT EXISTS "
-            + Constants.TABLE_ACCOUNT + "("
-            + Constants.ACCOUNT_COLUMN_ACCOUNT_NUMBER + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
-            + Constants.ACCOUNT_COLUMN_BALANCE + " REAL NOT NULL DEFAULT 0, "
-            + Constants.ACCOUNT_COLUMN_TYPE + " VARCHAR(50) NOT NULL DEFAULT '" + Constants.ACCOUNT_TYPE_SAVINGS + "', "
-            + Constants.ACCOUNT_COLUMN_USER_ID + " INTEGER, "
-            + "FOREIGN KEY (" + Constants.ACCOUNT_COLUMN_USER_ID + ") REFERENCES "
-            + Constants.TABLE_USER + "(" + Constants.USER_COLUMN_ID + ")"
+            + TABLE_ACCOUNT + "("
+            + ACCOUNT_COLUMN_ACCOUNT_NUMBER + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
+            + ACCOUNT_COLUMN_BALANCE + " REAL NOT NULL DEFAULT 0, "
+            + ACCOUNT_COLUMN_TYPE + " VARCHAR(50) NOT NULL DEFAULT '" + ACCOUNT_TYPE_SAVINGS + "', "
+            + ACCOUNT_COLUMN_USER_ID + " INTEGER, "
+            + "FOREIGN KEY (" + ACCOUNT_COLUMN_USER_ID + ") REFERENCES "
+            + TABLE_USER + "(" + USER_COLUMN_ID + ")"
             + ");";
 
     private static final String CREATE_TABLE_TRANSACTION = "CREATE TABLE IF NOT EXISTS "
-            + Constants.TABLE_TRANSACTION + "("
-            + Constants.TRANSACTION_COLUMN_ID + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
-            + Constants.TRANSACTION_COLUMN_FROM_ACCOUNT + " INTEGER NOT NULL, "
-            + Constants.TRANSACTION_COLUMN_TO_ACCOUNT + " INTEGER NOT NULL, "
-            + Constants.TRANSACTION_COLUMN_AMOUNT + " REAL NOT NULL, "
-            + Constants.TRANSACTION_COLUMN_TIME + " INTEGER NOT NULL"
+            + TABLE_TRANSACTION + "("
+            + TRANSACTION_COLUMN_ID + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
+            + TRANSACTION_COLUMN_FROM_ACCOUNT + " INTEGER NOT NULL, "
+            + TRANSACTION_COLUMN_TO_ACCOUNT + " INTEGER NOT NULL, "
+            + TRANSACTION_COLUMN_AMOUNT + " REAL NOT NULL, "
+            + TRANSACTION_COLUMN_TIME + " INTEGER NOT NULL"
             + ");";
 
     public static Connection setDbConnection() throws SQLException {
 
         try {
-            Class.forName(Constants.DRIVER_NAME);
-            dbConnection = DriverManager.getConnection(Constants.DATABASE_URL,
-                    Constants.DATABASE_USERNAME, Constants.DATABASE_PD);
+            Class.forName(DRIVER_NAME);
+            dbConnection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PD);
         } catch (ClassNotFoundException ex) {
 
             logger.error("Exception at setDbConnection : {}", ex);
@@ -105,11 +105,11 @@ public class DBConnection {
         PreparedStatement pst = null;
         User user = null;
 
-        String insertUserQuery = "INSERT INTO " + Constants.TABLE_USER
-                + "(" + Constants.USER_COLUMN_NAME
-                + ", " + Constants.USER_COLUMN_EMAIL
-                + ", " + Constants.USER_COLUMN_PD
-                + ", " + Constants.USER_COLUMN_ADDRESS
+        String insertUserQuery = "INSERT INTO " + TABLE_USER
+                + "(" + USER_COLUMN_NAME
+                + ", " + USER_COLUMN_EMAIL
+                + ", " + USER_COLUMN_PD
+                + ", " + USER_COLUMN_ADDRESS
                 + ") VALUES(?, ?, ?, ?)";
 
         try {
@@ -144,8 +144,8 @@ public class DBConnection {
     public User getUserById(int id, Connection connection) {
 
         String query = "SELECT * FROM "
-                + Constants.TABLE_USER + " WHERE "
-                + Constants.USER_COLUMN_ID + "='" + id + "'";
+                + TABLE_USER + " WHERE "
+                + USER_COLUMN_ID + "='" + id + "'";
 
         User user = null;
 
@@ -172,8 +172,8 @@ public class DBConnection {
     public ArrayList<Account> getAllAccountsOfUser(int id, Connection connection) {
 
         String query = "SELECT * FROM "
-                + Constants.TABLE_ACCOUNT + " WHERE "
-                + Constants.ACCOUNT_COLUMN_USER_ID + "='" + id + "'";
+                + TABLE_ACCOUNT + " WHERE "
+                + ACCOUNT_COLUMN_USER_ID + "='" + id + "'";
 
         ArrayList<Account> accountList = new ArrayList<Account>();
 
@@ -184,11 +184,10 @@ public class DBConnection {
             while (resultSet.next()) {
 
                 Account account = new Account();
-                account.setId(resultSet.getLong(Constants.ACCOUNT_COLUMN_USER_ID));
-                account.setAccountNumber(resultSet.getString(Constants.ACCOUNT_COLUMN_ACCOUNT_NUMBER));
-                account.setAccountType(resultSet.getString(Constants.ACCOUNT_COLUMN_TYPE));
-                account.setBalance(resultSet.getLong(Constants.ACCOUNT_COLUMN_BALANCE));
-                account.setUserId(resultSet.getLong(Constants.ACCOUNT_COLUMN_USER_ID));
+                account.setAccountNumber(resultSet.getString(ACCOUNT_COLUMN_ACCOUNT_NUMBER));
+                account.setAccountType(resultSet.getString(ACCOUNT_COLUMN_TYPE));
+                account.setBalance(resultSet.getLong(ACCOUNT_COLUMN_BALANCE));
+                account.setUserId(resultSet.getLong(ACCOUNT_COLUMN_USER_ID));
 
                 accountList.add(account);
             }
@@ -200,20 +199,15 @@ public class DBConnection {
         return accountList;
     }
 
-    public ArrayList<Transaction> getAllTransactionOfAccount(int id) {
-
-        return null;
-    }
-
     public void addNewAccount(String id, String type, Connection connection) {
 
         this.dbConnection = connection;
         PreparedStatement pst = null;
         Account account = null;
 
-        String insertUserQuery = "INSERT INTO " + Constants.TABLE_ACCOUNT
-                + "(" + Constants.ACCOUNT_COLUMN_USER_ID
-                + ", " + Constants.ACCOUNT_COLUMN_TYPE
+        String insertUserQuery = "INSERT INTO " + TABLE_ACCOUNT
+                + "(" + ACCOUNT_COLUMN_USER_ID
+                + ", " + ACCOUNT_COLUMN_TYPE
                 + ") VALUES(?, ?)";
         try {
 
@@ -232,6 +226,48 @@ public class DBConnection {
         }
     }
 
+    public List<Transaction> getAllUserTransactions(int user, Connection dbConnection) {
+
+        /* Example query :
+            SELECT * FROM transaction
+            WHERE transaction.from_account IN (SELECT account.account_number FROM account WHERE account.user_id = 1) OR
+            transaction.to_account IN (SELECT account.account_number FROM account WHERE account.user_id = 1)
+         */
+        String query = "SELECT * FROM " + TABLE_TRANSACTION +
+                " WHERE " + TABLE_TRANSACTION + "." + TRANSACTION_COLUMN_FROM_ACCOUNT + " IN (SELECT " +
+
+                TABLE_ACCOUNT + "." + ACCOUNT_COLUMN_ACCOUNT_NUMBER + " FROM " + TABLE_ACCOUNT +
+                " WHERE " + TABLE_ACCOUNT + "." + ACCOUNT_COLUMN_USER_ID + "='" + user + "') OR " +
+                TABLE_TRANSACTION + "." + TRANSACTION_COLUMN_TO_ACCOUNT + " IN (SELECT " +
+
+                TABLE_ACCOUNT + "." + ACCOUNT_COLUMN_ACCOUNT_NUMBER + " FROM " + TABLE_ACCOUNT +
+                " WHERE " + TABLE_ACCOUNT + "." + ACCOUNT_COLUMN_USER_ID + "='" + user + "')";
+
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
+        resultSet = getResultSet(query, dbConnection);
+
+        try {
+
+            while (resultSet.next()) {
+
+                Transaction transaction = new Transaction();
+                transaction.setId(resultSet.getLong(TRANSACTION_COLUMN_ID));
+                transaction.setFromAccountId(resultSet.getLong(TRANSACTION_COLUMN_FROM_ACCOUNT));
+                transaction.setToAccountId(resultSet.getLong(TRANSACTION_COLUMN_TO_ACCOUNT));
+                transaction.setTimeStamp(resultSet.getTime(TRANSACTION_COLUMN_TIME));
+                transaction.setAmount(resultSet.getLong(TRANSACTION_COLUMN_AMOUNT));
+
+                transactions.add(transaction);
+            }
+        } catch (SQLException ex) {
+
+            logger.error("Exception at checkLogin during User retrieve : {}", ex);
+        }
+
+        return transactions;
+    }
+
     private void closeEverything(PreparedStatement pst, Connection dbConnection) {
 
         try {
@@ -243,6 +279,93 @@ public class DBConnection {
 
         } catch (SQLException ex) {
             logger.error("Exception at closeEverything : {}", ex);
+        }
+    }
+
+    public String makeTransaction(String fromAccountNumber, String toAccountNumber,
+                                  String amount, Connection dbConnection) throws SQLException {
+
+        /**
+         * Check if fromAccount and toAccount are valid accounts, otherwise return error.
+         * Query balance of fromAccount. If balance of fromAccount is less than amount, return error.
+         * If all correct, make transaction.
+         */
+
+        statement = dbConnection.createStatement();
+        PreparedStatement pst = null;
+
+        String fromAccountQuery = "SELECT * FROM " + TABLE_ACCOUNT + " WHERE " + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + fromAccountNumber + "'";
+        String toAccountQuery = "SELECT * FROM " + TABLE_ACCOUNT + " WHERE " + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + toAccountNumber + "'";
+
+        Account fromAccount = null;
+        Account toAccount = null;
+
+        resultSet = getResultSet(fromAccountQuery, dbConnection);
+        if(resultSet.next()) {
+
+            fromAccount = new Account();
+            fromAccount.setAccountNumber(resultSet.getString(ACCOUNT_COLUMN_ACCOUNT_NUMBER));
+            fromAccount.setAccountType(resultSet.getString(ACCOUNT_COLUMN_TYPE));
+            fromAccount.setBalance(resultSet.getLong(ACCOUNT_COLUMN_BALANCE));
+            fromAccount.setUserId(resultSet.getLong(ACCOUNT_COLUMN_USER_ID));
+        }
+
+        resultSet = getResultSet(toAccountQuery, dbConnection);
+        if(resultSet.next()) {
+
+            toAccount = new Account();
+            toAccount.setAccountNumber(resultSet.getString(ACCOUNT_COLUMN_ACCOUNT_NUMBER));
+            toAccount.setAccountType(resultSet.getString(ACCOUNT_COLUMN_TYPE));
+            toAccount.setBalance(resultSet.getLong(ACCOUNT_COLUMN_BALANCE));
+            toAccount.setUserId(resultSet.getLong(ACCOUNT_COLUMN_USER_ID));
+        }
+
+        if(fromAccount == null || toAccount == null) {
+            return TRANSACTION_INVALID_ACCOUNTS;
+        } else if(fromAccount.getBalance() < Long.valueOf(amount)) {
+            return INSUFFICIENT_BALANCE;
+        } else {
+
+            fromAccount.setBalance(fromAccount.getBalance() - Long.valueOf(amount));
+            toAccount.setBalance(toAccount.getBalance() + Long.valueOf(amount));
+
+            String changeFromQuery = "UPDATE " + TABLE_ACCOUNT + " SET "
+                    + ACCOUNT_COLUMN_BALANCE + "='" + fromAccount.getBalance() + "' WHERE "
+                    + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + fromAccountNumber + "'";
+            String changeToQuery = "UPDATE " + TABLE_ACCOUNT + " SET "
+                    + ACCOUNT_COLUMN_BALANCE + "='" + toAccount.getBalance() + "' WHERE "
+                    + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + toAccountNumber + "'";
+
+            Transaction transaction = new Transaction();
+            transaction.setFromAccountId(Long.valueOf(fromAccountNumber));
+            transaction.setToAccountId(Long.valueOf(toAccountNumber));
+            transaction.setAmount(Long.valueOf(amount));
+
+            String transactionQuery = "INSERT INTO " + TABLE_TRANSACTION
+                    + "(" + TRANSACTION_COLUMN_FROM_ACCOUNT
+                    + ", " + TRANSACTION_COLUMN_TO_ACCOUNT
+                    + ", " + TRANSACTION_COLUMN_AMOUNT
+                    + ", " + TRANSACTION_COLUMN_TIME
+                    + ") VALUES(?, ?, ?, ?)";
+
+            try {
+
+                pst = dbConnection.prepareStatement(transactionQuery);
+
+                pst.setString(1, fromAccountNumber);
+                pst.setString(2, toAccountNumber);
+                pst.setString(3, amount);
+                pst.setString(4, "2016-12-07 20:40:38");
+                pst.executeUpdate();
+                statement.executeUpdate(changeFromQuery);
+                statement.executeUpdate(changeToQuery);
+            } catch (SQLException ex) {
+                logger.error("Exception at makeTransaction : {}", ex);
+            } finally {
+                closeEverything(pst, dbConnection);
+            }
+
+            return TRANSACTION_DONE;
         }
     }
 }
