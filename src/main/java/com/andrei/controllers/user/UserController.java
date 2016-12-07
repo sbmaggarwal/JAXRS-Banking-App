@@ -1,5 +1,6 @@
 package com.andrei.controllers.user;
 
+import com.andrei.database.Constants;
 import com.andrei.model.User;
 import com.sun.jersey.api.view.Viewable;
 import org.apache.logging.log4j.LogManager;
@@ -35,7 +36,7 @@ public class UserController {
 
         service = UserService.getInstance();
 
-        logger.warn("Email : {} and password : {}", email, password);
+        logger.warn("login Email : {} and password : {}", email, password);
 
         User user = service.checkLogin(email, password);
 
@@ -67,7 +68,7 @@ public class UserController {
 
         service = UserService.getInstance();
 
-        logger.warn("Email : {} and password : {}", email, password);
+        logger.warn("register Email : {} and password : {}", email, password);
 
         User user = service.register(email, name, address, password);
 
@@ -102,18 +103,34 @@ public class UserController {
 
     @Path("/logout")
     @GET
+    @Produces(MediaType.TEXT_HTML)
     public void logout(@Context HttpServletRequest request,
                            @Context HttpServletResponse response)
             throws IOException, ServletException {
 
         String loginPage = request.getServletContext().getContextPath() + "/login.jsp";
-        logger.warn("login : {}", loginPage);
+        logger.warn("logout : {}", loginPage);
 
         if (request.getSession().getAttribute("user") != null) {
             request.getSession().invalidate();
             response.sendRedirect(loginPage);
             return;
         }
+    }
+
+    @Path("/newAccount/user/{id}/type/{type}")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public String addNewAccount(@PathParam("id") String id,
+                                  @PathParam("type") String type) {
+
+        logger.warn("addNewAccount id : {}", id);
+        logger.warn("addNewAccount type : {}", type);
+
+        service = UserService.getInstance();
+        service.addNewAccount(id, type);
+
+        return Constants.ACCOUNT_ADDED;
     }
 
 }

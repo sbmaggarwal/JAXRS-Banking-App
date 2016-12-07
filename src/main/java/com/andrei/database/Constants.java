@@ -31,4 +31,6 @@ public class Constants {
     public static final String TRANSACTION_COLUMN_TO_ACCOUNT = "to_account";
     public static final String TRANSACTION_COLUMN_AMOUNT = "amount";
     public static final String TRANSACTION_COLUMN_TIME = "timestamp";
+
+    public static final String ACCOUNT_ADDED = "Account added. Refresh page to see changes.";
 }

@@ -87,4 +87,17 @@ public class UserService {
 
         return connection.registerUser(email, name, address, password, dbConnection);
     }
+
+    public void addNewAccount(String id, String type) {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at addNewAccount : {}", ex);
+        }
+
+        User user = connection.getUserById(Integer.parseInt(id), dbConnection);
+    }
 }
