@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.andrei.database.Constants.*;
 
@@ -178,13 +177,13 @@ public class DBConnection {
         return user;
     }
 
-    public List<Account> getAllAccountsOfUser(int id, Connection connection) {
+    public ArrayList<Account> getAllAccountsOfUser(int id, Connection connection) {
 
         String query = "SELECT * FROM "
                 + Constants.TABLE_ACCOUNT + " WHERE "
                 + Constants.ACCOUNT_COLUMN_USER_ID + "='" + id + "'";
 
-        List<Account> accountList = new ArrayList<Account>();
+        ArrayList<Account> accountList = new ArrayList<Account>();
 
         resultSet = getResultSet(query, connection);
 

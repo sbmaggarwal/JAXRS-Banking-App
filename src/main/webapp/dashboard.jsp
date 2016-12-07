@@ -1,3 +1,7 @@
+<%@ page import="com.andrei.controllers.user.UserService" %>
+<%@ page import="com.andrei.model.Account" %>
+<%@ page import="com.andrei.model.User" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,7 +36,6 @@
             <div class="card z-depth-5">
                 <div class="card-content">
                     <span class="card-title black-text">Select Account Type</span>
-                    <%--<form id="signUpForm" >--%>
                     <div class="container input-field col s12">
                         <select id="accountType" name="accountType">
                             <option value="Savings" selected>Savings</option>
@@ -41,12 +44,47 @@
                     </div>
                     <input type="button" onclick="submitForm()" class="btn" value="Add New Account">
                     <label id="responseMessage"></label>
-                    <%--</form>--%>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 cyan lighten-5">
+            <div class="card z-depth-5">
+                <table class="centered" id="accountTable">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Account ID</th>
+                        <th data-field="name">Account Number</th>
+                        <th data-field="price">Type</th>
+                        <th data-field="balance">Balance</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <% List<Account> accounts = UserService.getInstance().
+                                getUserAccounts(((User) request.getSession().getAttribute("user")).getId());
+                            for(Account account : accounts) {
+                        %>
+
+                        <td><%= account.getId() %></td>
+                        <td><%= account.getAccountNumber() %></td>
+                        <td><%= account.getAccountType() %></td>
+                        <td><%= account.getBalance() %></td>
+
+                        <%}%>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 
 <script>

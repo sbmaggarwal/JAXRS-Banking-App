@@ -1,6 +1,7 @@
 package com.andrei.controllers.user;
 
 import com.andrei.database.DBConnection;
+import com.andrei.model.Account;
 import com.andrei.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import static com.andrei.database.Constants.*;
 
@@ -99,5 +101,18 @@ public class UserService {
         }
 
         User user = connection.getUserById(Integer.parseInt(id), dbConnection);
+    }
+
+    public List<Account> getUserAccounts(long user) {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at addNewAccount : {}", ex);
+        }
+
+        return connection.getAllAccountsOfUser((int) user, dbConnection);
     }
 }
