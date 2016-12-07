@@ -100,4 +100,20 @@ public class UserController {
         return new Viewable(transactionPage, null);
     }
 
+    @Path("/logout")
+    @GET
+    public void logout(@Context HttpServletRequest request,
+                           @Context HttpServletResponse response)
+            throws IOException, ServletException {
+
+        String loginPage = request.getServletContext().getContextPath() + "/login.jsp";
+        logger.warn("login : {}", loginPage);
+
+        if (request.getSession().getAttribute("user") != null) {
+            request.getSession().invalidate();
+            response.sendRedirect(loginPage);
+            return;
+        }
+    }
+
 }

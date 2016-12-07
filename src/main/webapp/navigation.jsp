@@ -5,6 +5,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="dashboardPage">Accounts</a></li>
             <li><a href="transactionPage">Transactions</a></li>
+            <li><a href="logout">Logout</a></li>
         </ul>
     </div>
 </nav>
