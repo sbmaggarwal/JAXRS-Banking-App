@@ -1,7 +1,5 @@
 package com.andrei.model;
 
-import java.util.Date;
-
 /**
  * Created by shubham on 03/12/16.
  */
@@ -11,7 +9,7 @@ public class Transaction {
     private long fromAccountId;
     private long toAccountId;
     private long amount;
-    private Date timeStamp = new Date();
+    private String timeStamp;
 
     public long getId() {
         return id;
@@ -45,11 +43,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Date getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 

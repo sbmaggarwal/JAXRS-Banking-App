@@ -252,11 +252,14 @@ public class DBConnection {
 
             while (resultSet.next()) {
 
+                String date = resultSet.getString(TRANSACTION_COLUMN_TIME);
+                date = date.substring(0, date.indexOf(' '));
+
                 Transaction transaction = new Transaction();
                 transaction.setId(resultSet.getLong(TRANSACTION_COLUMN_ID));
                 transaction.setFromAccountId(resultSet.getLong(TRANSACTION_COLUMN_FROM_ACCOUNT));
                 transaction.setToAccountId(resultSet.getLong(TRANSACTION_COLUMN_TO_ACCOUNT));
-                transaction.setTimeStamp(resultSet.getTime(TRANSACTION_COLUMN_TIME));
+                transaction.setTimeStamp(date);
                 transaction.setAmount(resultSet.getLong(TRANSACTION_COLUMN_AMOUNT));
 
                 transactions.add(transaction);
@@ -421,12 +424,15 @@ public class DBConnection {
 
         try {
 
+            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+            logger.warn("addMoney : date {}", date);
+
             pst = dbConnection.prepareStatement(transactionQuery);
 
             pst.setString(1, "000");
             pst.setString(2, accountNumber);
             pst.setString(3, String.valueOf(amount));
-            pst.setDate(4, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+            pst.setDate(4, date);
             pst.executeUpdate();
 
             statement.executeUpdate(changeToQuery);

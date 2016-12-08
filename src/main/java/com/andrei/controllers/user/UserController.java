@@ -2,7 +2,6 @@ package com.andrei.controllers.user;
 
 import com.andrei.database.Constants;
 import com.andrei.model.User;
-import com.sun.jersey.api.view.Viewable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +43,7 @@ public class UserController {
     @Path("/register")
     @POST
     @Produces(MediaType.TEXT_HTML)
-    public Viewable register(@Context HttpServletRequest request,
+    public void register(@Context HttpServletRequest request,
                              @Context HttpServletResponse response,
                              @FormParam("email") String email,
                              @FormParam("name") String name,
@@ -53,27 +52,27 @@ public class UserController {
             throws SQLException, ServletException, IOException {
 
         request.getSession().setAttribute("user", UserService.getInstance().register(email, name, address, password));
-        return new Viewable("/dashboard.jsp", null);
+        request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
     }
 
     @Path("/dashboardPage")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public Viewable dashboardPage(@Context HttpServletRequest request,
+    public void dashboardPage(@Context HttpServletRequest request,
                                   @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        return new Viewable("/dashboard.jsp", null);
+        request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
     }
 
     @Path("/transactionPage")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public Viewable transactionPage(@Context HttpServletRequest request,
+    public void transactionPage(@Context HttpServletRequest request,
                                     @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        return new Viewable("/transaction.jsp", null);
+        request.getRequestDispatcher("/transaction.jsp").forward(request, response);
     }
 
     @Path("/logout")
@@ -113,21 +112,21 @@ public class UserController {
     @Path("/lodgement")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public Viewable lodgement(@Context HttpServletRequest request,
+    public void lodgement(@Context HttpServletRequest request,
                               @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        return new Viewable("/lodgement.jsp", null);
+        request.getRequestDispatcher("/lodgement.jsp").forward(request, response);
     }
 
     @Path("/withdrawal")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public Viewable withdrawal(@Context HttpServletRequest request,
+    public void withdrawal(@Context HttpServletRequest request,
                                @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        return new Viewable("/withdrawal.jsp", null);
+        request.getRequestDispatcher("/withdrawal.jsp").forward(request, response);
     }
 
     @Path("/addMoney/account/{toAccount}/amount/{amount}")

@@ -1,6 +1,7 @@
 <%@ page import="com.andrei.controllers.user.UserService" %>
 <%@ page import="com.andrei.model.Transaction" %>
 <%@ page import="com.andrei.model.User" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -58,7 +59,7 @@
                         <th data-field="from">From</th>
                         <th data-field="to">To</th>
                         <th data-field="amount">Amount (USD)</th>
-                        <th data-field="time">Time</th>
+                        <th data-field="time">Date</th>
                     </tr>
                     </thead>
 
@@ -66,6 +67,7 @@
 
                     <% List<Transaction> transactions = UserService.getInstance().
                             getUserTransactions(((User) request.getSession().getAttribute("user")).getId());
+
                         for (Transaction transaction : transactions) {
                     %>
                     <tr>
