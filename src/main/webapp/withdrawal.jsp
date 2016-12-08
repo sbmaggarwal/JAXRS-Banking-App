@@ -26,14 +26,10 @@
         <div class="col s12 m6 offset-m3 cyan lighten-5">
             <div class="card z-depth-5">
                 <div class="card-content">
-                    <span class="card-title black-text">Make Transaction</span>
-                    <div class="input-field">
-                        <input id="fromAccount" type="number" class="validate">
-                        <label for="fromAccount">From Account number</label>
-                    </div>
+                    <span class="card-title black-text">Withdraw Money</span>
                     <div class="input-field">
                         <input id="toAccount" type="number" class="validate">
-                        <label for="toAccount">To Account number</label>
+                        <label for="toAccount">Account number</label>
                     </div>
                     <div class="input-field">
                         <input id="amount" type="number" class="validate">
@@ -47,57 +43,19 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col s12 cyan lighten-5">
-            <div class="card z-depth-5">
-                <table class="centered" id="accountTable">
-                    <thead>
-                    <tr>
-                        <th data-field="TID">Transaction ID</th>
-                        <th data-field="from">From</th>
-                        <th data-field="to">To</th>
-                        <th data-field="amount">Amount (USD)</th>
-                        <th data-field="time">Time</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    <% List<Transaction> transactions = UserService.getInstance().
-                            getUserTransactions(((User) request.getSession().getAttribute("user")).getId());
-                        for (Transaction transaction : transactions) {
-                    %>
-                    <tr>
-                        <td><%= transaction.getId() %></td>
-                        <td><%= transaction.getFromAccountId() %></td>
-                        <td><%= transaction.getToAccountId() %></td>
-                        <td><%= transaction.getAmount() %></td>
-                        <td><%= transaction.getTimeStamp() %></td>
-                    </tr>
-                    <%}%>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
 </body>
 
 <script>
 
     function submitForm() {
 
-        var fromAccount = document.getElementById("fromAccount").value;
         var toAccount = document.getElementById("toAccount").value;
-        var amount = document.getElementById("amount").value;
+        var amount = -1 * document.getElementById("amount").value;
 
-        console.log("fromAccount : " + fromAccount);
         console.log("toAccount : " + toAccount);
         console.log("amount : " + amount);
 
-        var url = './transaction/fromAccount/' + fromAccount + '/toAccount/' + toAccount + '/amount/' + amount;
+        var url = './addMoney/account/' + toAccount + '/amount/' + amount;
         console.log(url);
 
         $.ajax({

@@ -3,8 +3,6 @@ package com.andrei.controllers.user;
 import com.andrei.database.Constants;
 import com.andrei.model.User;
 import com.sun.jersey.api.view.Viewable;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,8 +21,6 @@ import java.sql.SQLException;
 @Path("/users")
 public class UserController {
 
-    private final Logger logger = LogManager.getLogger("UserController");
-
     @Path("/login")
     @POST
     public void login(@Context HttpServletRequest request,
@@ -36,16 +32,12 @@ public class UserController {
         User user = UserService.getInstance().checkLogin(email, password);
 
         if (user == null) {
-
-            String invalidUser = request.getServletContext().getContextPath() + "/invalidUser.html";
-            response.sendRedirect(invalidUser);
+            response.sendRedirect(request.getServletContext().getContextPath() + "/invalidUser.html");
         } else {
 
             HttpSession session = request.getSession();
-
-            String dashboard = "/dashboard.jsp";
             session.setAttribute("user", user);
-            request.getRequestDispatcher(dashboard).forward(request, response);
+            request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
         }
     }
 
@@ -60,11 +52,8 @@ public class UserController {
                              @FormParam("password") String password)
             throws SQLException, ServletException, IOException {
 
-        User user = UserService.getInstance().register(email, name, address, password);
-
-        String dashboard = "/dashboard.jsp";
-        request.getSession().setAttribute("user", user);
-        return new Viewable(dashboard, null);
+        request.getSession().setAttribute("user", UserService.getInstance().register(email, name, address, password));
+        return new Viewable("/dashboard.jsp", null);
     }
 
     @Path("/dashboardPage")
@@ -74,8 +63,7 @@ public class UserController {
                                   @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        String dashboard = "/dashboard.jsp";
-        return new Viewable(dashboard, null);
+        return new Viewable("/dashboard.jsp", null);
     }
 
     @Path("/transactionPage")
@@ -85,8 +73,7 @@ public class UserController {
                                     @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        String transactionPage = "/transaction.jsp";
-        return new Viewable(transactionPage, null);
+        return new Viewable("/transaction.jsp", null);
     }
 
     @Path("/logout")
@@ -95,11 +82,9 @@ public class UserController {
                        @Context HttpServletResponse response)
             throws IOException, ServletException {
 
-        String loginPage = request.getServletContext().getContextPath() + "/login.jsp";
-
         if (request.getSession().getAttribute("user") != null) {
             request.getSession().invalidate();
-            response.sendRedirect(loginPage);
+            response.sendRedirect(request.getServletContext().getContextPath() + "/login.jsp");
             return;
         }
     }
@@ -108,7 +93,7 @@ public class UserController {
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public Response addNewAccount(@PathParam("id") String id,
-                                @PathParam("type") String type) {
+                                  @PathParam("type") String type) {
 
         UserService.getInstance().addNewAccount(id, type);
         return Response.status(200).entity(Constants.ACCOUNT_ADDED).build();
@@ -123,5 +108,45 @@ public class UserController {
 
         return Response.status(200).entity(
                 UserService.getInstance().makeTransaction(fromAccount, toAccount, amount)).build();
+    }
+
+    @Path("/lodgement")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public Viewable lodgement(@Context HttpServletRequest request,
+                              @Context HttpServletResponse response)
+            throws IOException, ServletException {
+
+        return new Viewable("/lodgement.jsp", null);
+    }
+
+    @Path("/withdrawal")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public Viewable withdrawal(@Context HttpServletRequest request,
+                               @Context HttpServletResponse response)
+            throws IOException, ServletException {
+
+        return new Viewable("/withdrawal.jsp", null);
+    }
+
+    @Path("/addMoney/account/{toAccount}/amount/{amount}")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response addMoney(@PathParam("toAccount") String toAccount,
+                             @PathParam("amount") String amount) throws SQLException {
+
+        return Response.status(200).entity(
+                UserService.getInstance().addMoney(toAccount, amount)).build();
+    }
+
+    @Path("/withdrawMoney/account/{toAccount}/amount/{amount}")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response withdrawMoney(@PathParam("toAccount") String toAccount,
+                             @PathParam("amount") String amount) throws SQLException {
+
+        return Response.status(200).entity(
+                UserService.getInstance().withdrawMoney(toAccount, amount)).build();
     }
 }

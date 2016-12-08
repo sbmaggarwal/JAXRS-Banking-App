@@ -1,3 +1,11 @@
 
-qsquid:S1450"VRemove the "service" field and declare it as a local variable in the relevant methods.(—îÀ:8À¹›Œ+
-Zsquid:S3400"9Remove this method and declare a constant for this value.(»÷äíûÿÿÿÿ8šÜ¶‚Œ+
+—squid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(¯ŠĞ„8ì»–£+
+—squid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(Äà‹Å8¿üŸ¨+
+Xsquid:S1191"<Replace this usage of Sun classes by ones from the Java API.(åŠ”æ8Ó¬£+
+œsquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(Ñ„óõúÿÿÿÿ8†ÿ¾æ+
+ksquid:S1192"ODefine a constant instead of duplicating this literal "/dashboard.jsp" 3 times.(Â´Î8éğÂæ+
+—squid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(ƒÚ®š8†ÿ¾æ+
+Qsquid:S2209"5Change this instance-reference to a static reference.(¯ìö©8ö¾¬Æ+
+®squid:S1160"’Refactor this method to throw at most one checked exception instead of: java.sql.SQLException, javax.servlet.ServletException, java.io.IOException(×àå~8‚—“’+
+´squid:S1160"’Refactor this method to throw at most one checked exception instead of: java.sql.SQLException, javax.servlet.ServletException, java.io.IOException(ºšÑùùÿÿÿÿ8­ıó’+
+—squid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(İİ¬Å8¬­•£+

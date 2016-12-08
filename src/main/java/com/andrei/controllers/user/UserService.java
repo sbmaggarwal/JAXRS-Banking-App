@@ -143,4 +143,37 @@ public class UserService {
 
         return connection.makeTransaction(fromAccount, toAccount, amount, dbConnection);
     }
+
+    public String addMoney(String toAccount, String amount) {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at addMoney : {}", ex);
+        }
+
+        return connection.addMoney(toAccount, Long.valueOf(amount), dbConnection);
+    }
+
+    public String withdrawMoney(String toAccount, String amount) {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at addMoney : {}", ex);
+        }
+
+        long money = Long.valueOf(amount);
+
+        logger.warn("withdraw amount : {}", money);
+        money = -1 * money;
+        logger.warn("withdraw amount : {}", money);
+        System.out.println("money = " + money);
+
+        return connection.addMoney(toAccount, money, dbConnection);
+    }
 }

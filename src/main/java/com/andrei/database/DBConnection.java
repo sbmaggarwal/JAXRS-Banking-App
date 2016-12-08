@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static com.andrei.database.Constants.*;
@@ -45,10 +46,10 @@ public class DBConnection {
     private static final String CREATE_TABLE_TRANSACTION = "CREATE TABLE IF NOT EXISTS "
             + TABLE_TRANSACTION + "("
             + TRANSACTION_COLUMN_ID + " INTEGER PRIMARY KEY AUTO_INCREMENT, "
-            + TRANSACTION_COLUMN_FROM_ACCOUNT + " INTEGER NOT NULL, "
-            + TRANSACTION_COLUMN_TO_ACCOUNT + " INTEGER NOT NULL, "
+            + TRANSACTION_COLUMN_FROM_ACCOUNT + " VARCHAR(50), "
+            + TRANSACTION_COLUMN_TO_ACCOUNT + " VARCHAR(50), "
             + TRANSACTION_COLUMN_AMOUNT + " REAL NOT NULL, "
-            + TRANSACTION_COLUMN_TIME + " INTEGER NOT NULL"
+            + TRANSACTION_COLUMN_TIME + " DATETIME "
             + ");";
 
     public static Connection setDbConnection() throws SQLException {
@@ -301,7 +302,7 @@ public class DBConnection {
         Account toAccount = null;
 
         resultSet = getResultSet(fromAccountQuery, dbConnection);
-        if(resultSet.next()) {
+        if (resultSet.next()) {
 
             fromAccount = new Account();
             fromAccount.setAccountNumber(resultSet.getString(ACCOUNT_COLUMN_ACCOUNT_NUMBER));
@@ -311,7 +312,7 @@ public class DBConnection {
         }
 
         resultSet = getResultSet(toAccountQuery, dbConnection);
-        if(resultSet.next()) {
+        if (resultSet.next()) {
 
             toAccount = new Account();
             toAccount.setAccountNumber(resultSet.getString(ACCOUNT_COLUMN_ACCOUNT_NUMBER));
@@ -320,9 +321,9 @@ public class DBConnection {
             toAccount.setUserId(resultSet.getLong(ACCOUNT_COLUMN_USER_ID));
         }
 
-        if(fromAccount == null || toAccount == null) {
+        if (fromAccount == null || toAccount == null) {
             return TRANSACTION_INVALID_ACCOUNTS;
-        } else if(fromAccount.getBalance() < Long.valueOf(amount)) {
+        } else if (fromAccount.getBalance() < Long.valueOf(amount)) {
             return INSUFFICIENT_BALANCE;
         } else {
 
@@ -350,12 +351,13 @@ public class DBConnection {
 
             try {
 
+                logger.warn("Transaction time : {}", new java.sql.Date(Calendar.getInstance().getTime().getTime()));
                 pst = dbConnection.prepareStatement(transactionQuery);
 
                 pst.setString(1, fromAccountNumber);
                 pst.setString(2, toAccountNumber);
                 pst.setString(3, amount);
-                pst.setString(4, "2016-12-07 20:40:38");
+                pst.setDate(4, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
                 pst.executeUpdate();
                 statement.executeUpdate(changeFromQuery);
                 statement.executeUpdate(changeToQuery);
@@ -367,5 +369,77 @@ public class DBConnection {
 
             return TRANSACTION_DONE;
         }
+    }
+
+    public String addMoney(String accountNumber, Long amount, Connection dbConnection) {
+
+        String result = "";
+        PreparedStatement pst = null;
+
+        Account toAccount = null;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            result = SOME_ERROR;
+        }
+
+        String toAccountQuery = "SELECT * FROM " + TABLE_ACCOUNT +
+                " WHERE " + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + accountNumber + "'";
+
+        resultSet = getResultSet(toAccountQuery, dbConnection);
+
+        try {
+            if (resultSet.next()) {
+
+                toAccount = new Account();
+                toAccount.setAccountNumber(resultSet.getString(ACCOUNT_COLUMN_ACCOUNT_NUMBER));
+                toAccount.setAccountType(resultSet.getString(ACCOUNT_COLUMN_TYPE));
+                toAccount.setBalance(resultSet.getLong(ACCOUNT_COLUMN_BALANCE));
+                toAccount.setUserId(resultSet.getLong(ACCOUNT_COLUMN_USER_ID));
+            }
+        } catch (SQLException ex) {
+            logger.error("Exception at addMoney : {}", ex);
+            result = SOME_ERROR;
+        }
+
+        logger.warn("amount : {}", amount);
+        logger.warn("setBalance before : {}", toAccount.getBalance());
+        toAccount.setBalance(toAccount.getBalance() + amount);
+        logger.warn("setBalance after : {}", toAccount.getBalance());
+
+        String changeToQuery = "UPDATE " + TABLE_ACCOUNT + " SET "
+                + ACCOUNT_COLUMN_BALANCE + "='" + toAccount.getBalance() + "' WHERE "
+                + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + accountNumber + "'";
+
+        String transactionQuery = "INSERT INTO " + TABLE_TRANSACTION
+                + "(" + TRANSACTION_COLUMN_FROM_ACCOUNT
+                + ", " + TRANSACTION_COLUMN_TO_ACCOUNT
+                + ", " + TRANSACTION_COLUMN_AMOUNT
+                + ", " + TRANSACTION_COLUMN_TIME
+                + ") VALUES(?, ?, ?, ?)";
+
+        try {
+
+            pst = dbConnection.prepareStatement(transactionQuery);
+
+            pst.setString(1, "000");
+            pst.setString(2, accountNumber);
+            pst.setString(3, String.valueOf(amount));
+            pst.setDate(4, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+            pst.executeUpdate();
+
+            statement.executeUpdate(changeToQuery);
+            result = "Done";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            result = SOME_ERROR;
+        } finally {
+            closeEverything(pst, dbConnection);
+        }
+
+        logger.warn("result : {}", result);
+
+        return result;
     }
 }

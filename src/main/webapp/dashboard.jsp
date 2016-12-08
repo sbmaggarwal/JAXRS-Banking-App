@@ -109,5 +109,5 @@
 
 
 </script>
-<script> $("#nav-placeholder").load('http://localhost:8080/AndreiBank/navigation.jsp'); </script>
+<script> $("#nav-placeholder").load('http://localhost:8080/BankApp/navigation.jsp'); </script>
 </html>
