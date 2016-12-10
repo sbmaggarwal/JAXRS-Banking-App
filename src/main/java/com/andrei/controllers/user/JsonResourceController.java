@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * Created by shubham on 10/12/16.
  */
 @Path("/json/resources")
-public class ResourceController {
+public class JsonResourceController {
 
     @Path("/balance/user/{userid}/account/{account}")
     @GET
@@ -26,7 +26,7 @@ public class ResourceController {
 
         ApiResponse response = new ApiResponse();
         response.setUserId(userid);
-        response.setMessage("Balance is " + UserService.getInstance().getBalance(userid, account));
+        response.setData(UserService.getInstance().getBalance(userid, account));
         return Response.ok(new ObjectMapper()
                 .writeValueAsString(response)).build();
     }
@@ -40,7 +40,7 @@ public class ResourceController {
 
         ApiResponse response = new ApiResponse();
         response.setUserId(userId);
-        response.setMessage(UserService.getInstance().lodgement(userId, account, amount));
+        response.setData(UserService.getInstance().lodgement(userId, account, amount));
         return Response.ok(new ObjectMapper()
                 .writeValueAsString(response)).build();
     }
@@ -55,7 +55,7 @@ public class ResourceController {
 
         ApiResponse response = new ApiResponse();
         response.setUserId(userid);
-        response.setMessage(UserService.getInstance().transfer(fromAccount, toAccount, amount));
+        response.setData(UserService.getInstance().transfer(fromAccount, toAccount, amount));
         return Response.ok(new ObjectMapper()
                 .writeValueAsString(response)).build();
     }
@@ -69,7 +69,7 @@ public class ResourceController {
 
         ApiResponse response = new ApiResponse();
         response.setUserId(userid);
-        response.setMessage(UserService.getInstance().withdrawMoney(account, amount));
+        response.setData(UserService.getInstance().withdrawMoney(account, amount));
         return Response.ok(new ObjectMapper()
                 .writeValueAsString(response)).build();
     }

@@ -407,9 +407,9 @@ public class DBConnection {
         }
 
         logger.warn("amount : {}", amount);
-        logger.warn("setMessage before : {}", toAccount.getBalance());
+        logger.warn("setData before : {}", toAccount.getBalance());
         toAccount.setBalance(toAccount.getBalance() + amount);
-        logger.warn("setMessage after : {}", toAccount.getBalance());
+        logger.warn("setData after : {}", toAccount.getBalance());
 
         String changeToQuery = "UPDATE " + TABLE_ACCOUNT + " SET "
                 + ACCOUNT_COLUMN_BALANCE + "='" + toAccount.getBalance() + "' WHERE "
