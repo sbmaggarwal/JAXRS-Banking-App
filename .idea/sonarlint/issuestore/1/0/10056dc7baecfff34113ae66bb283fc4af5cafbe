@@ -1,11 +1,10 @@
 
-ósquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(Øä–Ñ8Ïªñ£ç+
-ósquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(ƒ‡ã≈8ø¸ü®ç+
-Xsquid:S1191"<Replace this usage of Sun classes by ones from the Java API.(ÂäîÊ8”Å¨£ç+
-úsquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(—ÑÛı˙ˇˇˇˇ8ÜˇæÊç+
+úsquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(˜•÷‚¸ˇˇˇˇ8Ïªñ£ç+
 ksquid:S1192"ODefine a constant instead of duplicating this literal "/dashboard.jsp" 3 times.(¬é¥Œ8È¬Êç+
-ósquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(É⁄Æö8ÜˇæÊç+
-Qsquid:S2209"5Change this instance-reference to a static reference.(ØÏˆ©8ˆæ¨∆ç+
+ósquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(ãöÈ8ÜˇæÊç+
+ñsquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(È©∆V8¨≠ï£ç+
+úsquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(†∆®†¯ˇˇˇˇ8ÜˇæÊç+
+ósquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(ƒ‡ã≈8ø¸ü®ç+
+¥squid:S1160"íRefactor this method to throw at most one checked exception instead of: java.sql.SQLException, javax.servlet.ServletException, java.io.IOException(ÍãŒæˇˇˇˇˇ8≠˝Ûíç+
 Æsquid:S1160"íRefactor this method to throw at most one checked exception instead of: java.sql.SQLException, javax.servlet.ServletException, java.io.IOException(◊‡Â~8Çóìíç+
-¥squid:S1160"íRefactor this method to throw at most one checked exception instead of: java.sql.SQLException, javax.servlet.ServletException, java.io.IOException(∫ö—˘˘ˇˇˇˇ8≠˝Ûíç+
-ósquid:S1160"{Refactor this method to throw at most one checked exception instead of: java.io.IOException, javax.servlet.ServletException(››¨≈8¨≠ï£ç+
+Qsquid:S2209"5Change this instance-reference to a static reference.(ØÏˆ©8ˆæ¨∆ç+

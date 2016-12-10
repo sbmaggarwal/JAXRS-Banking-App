@@ -407,9 +407,9 @@ public class DBConnection {
         }
 
         logger.warn("amount : {}", amount);
-        logger.warn("setBalance before : {}", toAccount.getBalance());
+        logger.warn("setMessage before : {}", toAccount.getBalance());
         toAccount.setBalance(toAccount.getBalance() + amount);
-        logger.warn("setBalance after : {}", toAccount.getBalance());
+        logger.warn("setMessage after : {}", toAccount.getBalance());
 
         String changeToQuery = "UPDATE " + TABLE_ACCOUNT + " SET "
                 + ACCOUNT_COLUMN_BALANCE + "='" + toAccount.getBalance() + "' WHERE "
@@ -436,7 +436,7 @@ public class DBConnection {
             pst.executeUpdate();
 
             statement.executeUpdate(changeToQuery);
-            result = "Done";
+            result = DONE;
         } catch (SQLException e) {
             e.printStackTrace();
             result = SOME_ERROR;
@@ -447,5 +447,39 @@ public class DBConnection {
         logger.warn("result : {}", result);
 
         return result;
+    }
+
+    public String getBalance(String userid, String account, Connection dbConnection) throws SQLException {
+
+        String userQuery = "SELECT * FROM " + TABLE_ACCOUNT
+                + " WHERE " + ACCOUNT_COLUMN_USER_ID + "='" + userid + "'";
+
+        resultSet = getResultSet(userQuery, dbConnection);
+        if (!resultSet.next()) {
+
+            return INVALID_USER;
+        }
+
+        String accountQuery = "SELECT * FROM " + TABLE_ACCOUNT
+                + " WHERE " + ACCOUNT_COLUMN_ACCOUNT_NUMBER + "='" + account + "' AND "
+                + ACCOUNT_COLUMN_USER_ID + "='" + userid + "'";
+
+        resultSet = getResultSet(accountQuery, dbConnection);
+        if (resultSet.next()) {
+
+            return String.valueOf(resultSet.getLong(ACCOUNT_COLUMN_BALANCE));
+        } else {
+
+            return INVALID_ACCOUNT_FOR_USER;
+        }
+    }
+
+    public String lodgement(String userId, String account, String amount, Connection dbConnection) throws SQLException {
+
+        String result = addMoney(account, Long.valueOf(amount), dbConnection);
+        if(result.equalsIgnoreCase(DONE))
+            return "Money added. New Balance is : " + getBalance(userId, account, dbConnection);
+        else
+            return result;
     }
 }

@@ -169,11 +169,46 @@ public class UserService {
 
         long money = Long.valueOf(amount);
 
-        logger.warn("withdraw amount : {}", money);
         money = -1 * money;
-        logger.warn("withdraw amount : {}", money);
-        System.out.println("money = " + money);
-
         return connection.addMoney(toAccount, money, dbConnection);
+    }
+
+    public String getBalance(String userid, String account) throws SQLException {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at getBalance : {}", ex);
+        }
+
+        return connection.getBalance(userid, account, dbConnection);
+    }
+
+    public String lodgement(String userId, String account, String amount) throws SQLException {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at lodgement : {}", ex);
+        }
+
+        return connection.lodgement(userId, account, amount, dbConnection);
+    }
+
+    public String transfer(String fromAccount, String toAccount, String amount) throws SQLException {
+
+        DBConnection connection = new DBConnection();
+        try {
+            dbConnection = DBConnection.setDbConnection();
+        } catch (SQLException ex) {
+
+            logger.error("Exception at opening dbConnection at lodgement : {}", ex);
+        }
+
+        return connection.makeTransaction(fromAccount, toAccount, amount, dbConnection);
     }
 }

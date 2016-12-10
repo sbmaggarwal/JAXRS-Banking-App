@@ -1,28 +1,29 @@
 
-ˆ"squid:ClassVariableVisibilityCheck"UMake statement a static final constant or non-public and provide accessors if needed.(ê™óœ8Îò÷úŒ+
-dsquid:S1192"HDefine a constant instead of duplicating this literal " WHERE " 8 times.(¨àİÀ8Ã¥¹Ï+
-wsquid:S1192"\Define a constant instead of duplicating this literal "CREATE TABLE IF NOT EXISTS " 3 times.(ñ‡¨/8‘±ãüŒ+
-Asquid:S1166"%Either log or rethrow this exception.(É®£8„ùÕè+
-‚squid:S1192"fDefine a constant instead of duplicating this literal " INTEGER PRIMARY KEY AUTO_INCREMENT, " 3 times.(ú½ãø8‹ÔæüŒ+
-dsquid:S1192"HDefine a constant instead of duplicating this literal "UPDATE " 3 times.(Òìßœ8Ö‚Óè+
-Rsquid:S2696"6Make the enclosing method "static" or remove this set.(œÔÊ8ê“åÍ+
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ï–Öè+
-Rsquid:S2696"6Make the enclosing method "static" or remove this set.(‚ĞÄô8ˆğ…“+
-Qsquid:S2209"5Change this instance-reference to a static reference.(œÔÊ8ê“åÍ+
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8„ùÕè+
-‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôÛÜÈüÿÿÿÿ8õúÃÍ+
 ˆ"squid:ClassVariableVisibilityCheck"UMake resultSet a static final constant or non-public and provide accessors if needed.(Å‚ıß8Îò÷úŒ+
-Asquid:S1166"%Either log or rethrow this exception.(É®£8Ï–Öè+
-7squid:S1700"Rename field "dbConnection"(š¶£­8‚ñÒ•Œ+
-Wsquid:S2696"6Make the enclosing method "static" or remove this set.(´äŞÏùÿÿÿÿ8Ğˆ§Ñ+
-psquid:S1192"ODefine a constant instead of duplicating this literal "SELECT * FROM " 6 times.(ÒÇÿÿÿÿÿ8·ÀÎ+
-nsquid:S1192"MDefine a constant instead of duplicating this literal "INSERT INTO " 3 times.(ÅÂ»úøÿÿÿÿ8Ù•´Ñ+
-Wsquid:S2696"6Make the enclosing method "static" or remove this set.(´äŞÏùÿÿÿÿ8„ùÕè+
-Wsquid:S2696"6Make the enclosing method "static" or remove this set.(´äŞÏùÿÿÿÿ8€ıùúŒ+
-“squid:S1192"rDefine a constant instead of duplicating this literal "Exception at checkLogin during User retrieve : {}" 3 times.(¦…Æ³ùÿÿÿÿ8ÜáÑÎ+
+qsquid:S1192"UDefine a constant instead of duplicating this literal ") VALUES(?, ?, ?, ?)" 3 times.(ª¹äÅ8Ô˜†÷+
 Ksquid:S1444"/Make this "public static statement" field final(ê™óœ8€ıùúŒ+
+esquid:S2259"DNullPointerException might be thrown as 'toAccount' is nullable here(ş»Ôõÿÿÿÿÿ8ÈäÄø+
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(´äŞÏùÿÿÿÿ8Ğˆ§Ñ+
+Asquid:S1166"%Either log or rethrow this exception.(É®£8¢Œ†ö+
+7squid:S1700"Rename field "dbConnection"(š¶£­8‚ñÒ•Œ+
+psquid:S1192"ODefine a constant instead of duplicating this literal "SELECT * FROM " 6 times.(ÒÇÿÿÿÿÿ8·ÀÎ+
 Rsquid:S2696"6Make the enclosing method "static" or remove this set.(‚ĞÄô8÷†Ô–Œ+
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(œÔÊ8ê“åÍ+
+dsquid:S1192"HDefine a constant instead of duplicating this literal " WHERE " 8 times.(¨àİÀ8Ã¥¹Ï+
+dsquid:S1192"HDefine a constant instead of duplicating this literal "UPDATE " 3 times.(Òìßœ8Ö‚Óè+
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(´äŞÏùÿÿÿÿ8„ùÕè+
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(´äŞÏùÿÿÿÿ8¢Œ†ö+
+wsquid:S1192"\Define a constant instead of duplicating this literal "CREATE TABLE IF NOT EXISTS " 3 times.(ñ‡¨/8‘±ãüŒ+
+“squid:S1192"rDefine a constant instead of duplicating this literal "Exception at checkLogin during User retrieve : {}" 3 times.(¦…Æ³ùÿÿÿÿ8ÜáÑÎ+
 esquid:S1192"IDefine a constant instead of duplicating this literal "' WHERE " 3 times.(ÑÄ•Å8Ö‚Óè+
+‚squid:S1192"fDefine a constant instead of duplicating this literal " INTEGER PRIMARY KEY AUTO_INCREMENT, " 3 times.(ú½ãø8‹ÔæüŒ+
+Asquid:S1166"%Either log or rethrow this exception.(É®£8¢Œ†ö+
+Qsquid:S2209"5Change this instance-reference to a static reference.(œÔÊ8ê“åÍ+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢Œ†ö+
 Msquid:S1481",Remove this unused "account" local variable.(ç¦·åøÿÿÿÿ8µÛñÍ+
-`squid:S2259"DNullPointerException might be thrown as 'toAccount' is nullable here(ÒùÑ×8î°Ñè+
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(‚ĞÄô8ˆğ…“+
+ˆ"squid:ClassVariableVisibilityCheck"UMake statement a static final constant or non-public and provide accessors if needed.(ê™óœ8Îò÷úŒ+
 bsquid:S1192"FDefine a constant instead of duplicating this literal " SET " 3 times.(Òìßœ8Ö‚Óè+
+nsquid:S1192"MDefine a constant instead of duplicating this literal "INSERT INTO " 4 times.(ÅÂ»úøÿÿÿÿ8Ù•´Ñ+
+‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôÛÜÈüÿÿÿÿ8õúÃÍ+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢Œ†ö+

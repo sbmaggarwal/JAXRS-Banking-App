@@ -39,4 +39,7 @@ public class Constants {
     public static final String TRANSACTION_DONE = "Transaction Done. Refresh page to see changes.";
 
     public static final String SOME_ERROR = "Some error occured.";
+    public static final String DONE = "Done";
+    public static final String INVALID_ACCOUNT_FOR_USER = "Invalid account number for this user.";
+    public static final String INVALID_USER = "Invalid User.";
 }

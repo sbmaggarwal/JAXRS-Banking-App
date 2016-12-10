@@ -59,7 +59,7 @@
                     <tr>
                         <th data-field="name">Account Number</th>
                         <th data-field="price">Type</th>
-                        <th data-field="balance">Balance (USD)</th>
+                        <th data-field="message">Balance (USD)</th>
                     </tr>
                     </thead>
 

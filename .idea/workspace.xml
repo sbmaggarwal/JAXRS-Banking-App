@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ceed03e-7cbc-4007-a7ad-8c8bc1fdf82d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrei/controllers/user/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/andrei/controllers/user/UserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/ResourceController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/model/ApiResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/10056dc7baecfff34113ae66bb283fc4af5cafbe" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/10056dc7baecfff34113ae66bb283fc4af5cafbe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3ff876046cac6c3b99033d37146efbf29caf2a74" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3ff876046cac6c3b99033d37146efbf29caf2a74" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c1ceeee4db009eb18cdf19d9b08e6d87495c0a64" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c1ceeee4db009eb18cdf19d9b08e6d87495c0a64" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1cac05132d8c5185c099315d3be987d80dbe8cd" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1cac05132d8c5185c099315d3be987d80dbe8cd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrei/controllers/user/UserService.class" afterPath="$PROJECT_DIR$/target/classes/com/andrei/controllers/user/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrei/database/Constants.class" afterPath="$PROJECT_DIR$/target/classes/com/andrei/database/Constants.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrei/database/DBConnection.class" afterPath="$PROJECT_DIR$/target/classes/com/andrei/database/DBConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrei/model/Transaction.class" afterPath="$PROJECT_DIR$/target/classes/com/andrei/model/Transaction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/BankAndrei_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/BankAndrei_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BankAndrei.iml" afterPath="$PROJECT_DIR$/BankAndrei.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrei/model/Transaction.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrei/model/Transaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/transaction.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/transaction.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" />
     </list>
     <ignored path="BankAndrei.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,23 +40,15 @@
     <favorites_list name="BankAndrei" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java">
+    <leaf>
+      <file leaf-file-name="ResourceController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/ResourceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="307">
+              <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +56,8 @@
       <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="130" column="34" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
+            <state relative-caret-position="135">
+              <caret line="21" column="77" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -66,34 +66,34 @@
       <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
+            <state relative-caret-position="217">
+              <caret line="459" column="32" selection-start-line="459" selection-start-column="32" selection-end-line="459" selection-end-column="32" />
               <folding>
-                <marker date="1481212832000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
-                <marker date="1481212832000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
-                <marker date="1481212832000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
-                <marker date="1481212832000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
-                <marker date="1481212832000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
-                <marker date="1481212832000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
-                <marker date="1481212832000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
-                <marker date="1481212832000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
+                <marker date="1481366870000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
+                <marker date="1481366870000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
+                <marker date="1481366870000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
+                <marker date="1481366870000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
+                <marker date="1481366870000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
+                <marker date="1481366870000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
+                <marker date="1481366870000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
+                <marker date="1481366870000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transaction.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/transaction.jsp">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="77" column="58" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+            <state relative-caret-position="556">
+              <caret line="41" column="95" selection-start-line="41" selection-start-column="95" selection-end-line="41" selection-end-column="95" />
               <folding />
             </state>
           </provider>
@@ -105,9 +105,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -161,16 +161,22 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrei/model/Account.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/navigation.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/lodgement.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/withdrawal.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/transaction.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrei/model/Transaction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/model/ClientResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/model/BalanceResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/model/ApiResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/config/AppException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/config/SqlIncludeException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/ResourceController.java" />
       </list>
     </option>
   </component>
@@ -230,7 +236,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -455,12 +461,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Harodilini" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -1089,12 +1095,14 @@
       <workItem from="1480996136437" duration="47509000" />
       <workItem from="1481165251418" duration="197000" />
       <workItem from="1481172315343" duration="1798000" />
-      <workItem from="1481205891514" duration="7267000" />
+      <workItem from="1481205891514" duration="8636000" />
+      <workItem from="1481293898998" duration="1218000" />
+      <workItem from="1481331503037" duration="6792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80565000" />
+    <option name="totallyTimeSpent" value="89944000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1106,7 +1114,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="47" y="22" width="1233" height="778" extended-state="6" />
+    <frame x="47" y="22" width="1233" height="778" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1117,8 +1125,8 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1173,90 +1181,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/navigation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="141" column="45" selection-start-line="141" selection-start-column="45" selection-end-line="141" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="156" column="29" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481212832000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
-            <marker date="1481212832000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
-            <marker date="1481212832000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
-            <marker date="1481212832000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
-            <marker date="1481212832000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
-            <marker date="1481212832000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="41" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lodgement.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="29" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding>
-            <marker date="1481212832000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
-            <marker date="1481212832000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
-            <marker date="1481212832000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
-            <marker date="1481212832000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
-            <marker date="1481212832000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
-            <marker date="1481212832000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
+            <marker date="1481366870000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
+            <marker date="1481366870000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
+            <marker date="1481366870000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
+            <marker date="1481366870000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
+            <marker date="1481366870000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
+            <marker date="1481366870000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
           </folding>
         </state>
       </provider>
@@ -1265,7 +1209,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1296,7 +1242,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1425,19 +1373,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/MyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/invalidUser.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1469,15 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="82" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1485,7 +1415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="991" column="23" selection-start-line="991" selection-start-column="23" selection-end-line="991" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1505,11 +1434,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/model/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="130" column="34" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
+        <state relative-caret-position="240">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/ws/rs/core/Response.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1521,59 +1457,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/model/Transaction.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/ws/rs/core/MediaType.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+        <state relative-caret-position="163">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/MyApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="255" column="60" selection-start-line="255" selection-start-column="60" selection-end-line="255" selection-end-column="60" />
-          <folding>
-            <marker date="1481212832000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
-            <marker date="1481212832000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
-            <marker date="1481212832000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
-            <marker date="1481212832000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
-            <marker date="1481212832000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
-            <marker date="1481212832000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
-            <marker date="1481212832000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/ws/rs/core/Response.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state relative-caret-position="105">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        <state relative-caret-position="226">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="41" column="95" selection-start-line="41" selection-start-column="95" selection-end-line="41" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/database/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="459" column="32" selection-start-line="459" selection-start-column="32" selection-end-line="459" selection-end-column="32" />
+          <folding>
+            <marker date="1481366870000" expanded="true" signature="691:1082" ph="CREATE TABLE... user" />
+            <marker date="1481366870000" expanded="true" signature="1143:1656" ph="CREATE TABLE... IF" />
+            <marker date="1481366870000" expanded="true" signature="1721:2124" ph="CREATE TABLE... IF" />
+            <marker date="1481366870000" expanded="true" signature="3689:3924" ph="INSERT INTO user... " />
+            <marker date="1481366870000" expanded="true" signature="6800:6955" ph="INSERT INTO account... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12129" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12135" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12136" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12195" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12011:12221" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12260:12376" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12260:12466" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="12770:13074" ph="INSERT INTO transaction... " />
+            <marker date="1481366870000" expanded="true" signature="15398:15594" ph="UPDATE accou... " />
+            <marker date="1481366870000" expanded="true" signature="15633:15917" ph="INSERT INTO transaction... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/model/ApiResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="77" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/config/AppException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/config/SqlIncludeException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrei/controllers/user/ResourceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
